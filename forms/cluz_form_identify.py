@@ -21,7 +21,7 @@ class Ui_identifyDialog(object):
         self.gridLayout = QtWidgets.QGridLayout(identifyDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.identifyTableWidget = QtWidgets.QTableWidget(identifyDialog)
-        self.identifyTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.identifyTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.identifyTableWidget.setObjectName("identifyTableWidget")
         self.identifyTableWidget.setColumnCount(0)
         self.identifyTableWidget.setRowCount(0)

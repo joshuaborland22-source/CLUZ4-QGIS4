@@ -16,7 +16,7 @@ class Ui_abundDialog(object):
         self.gridLayout = QtWidgets.QGridLayout(abundDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.abundTableWidget = QtWidgets.QTableWidget(abundDialog)
-        self.abundTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.abundTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.abundTableWidget.setAlternatingRowColors(True)
         self.abundTableWidget.setObjectName("abundTableWidget")
         self.abundTableWidget.setColumnCount(0)

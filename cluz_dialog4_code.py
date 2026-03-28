@@ -275,7 +275,7 @@ def addIrrepResults(setupObject, irrepDict, irrepFieldName, statusSet):
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()

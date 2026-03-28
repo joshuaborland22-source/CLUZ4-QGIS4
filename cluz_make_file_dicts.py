@@ -208,7 +208,7 @@ def makeAbundancePUKeyDict(setupObject):
         abundReader = csv.reader(f)
         next(abundReader)
         for aRow in abundReader:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
             try:
                 featID = int(aRow[0])
@@ -248,7 +248,7 @@ def makePuvspr2DatFile(setupObject):
         puvspr2DatWriter = csv.writer(puvspr2DatFile)
         puvspr2DatWriter.writerow(['species', 'pu', 'amount'])
         for puID in puList:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             aPUAbundDict = abundPUKeyDict[puID]
@@ -287,7 +287,7 @@ def makeSporderDatFile(setupObject):
 
 
         for featID in featList:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             aPUDict = sporderDict[featID]
@@ -393,7 +393,7 @@ def writeBoundDatFile(setupObject, boundResultsDict, extEdgeBool):
         keyList = list(boundResultsDict.keys())
         keyList.sort()
         for aKey in keyList:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             (id1, id2) = aKey

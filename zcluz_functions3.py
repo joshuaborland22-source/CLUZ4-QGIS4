@@ -97,7 +97,7 @@ def checkZonesFieldsTargetCsvFile(setupObject, targetErrorSet):
 
         targetErrorSet = set()
         for aRow in targetReader:
-            progressBar.setValue((rowCount/rowTotalCount)*100)
+            progressBar.setValue(int((rowCount/rowTotalCount)*100))
             rowCount += 1
             for zoneID in setupObject.zonesDict:
                 propZoneNameString = 'z' + str(zoneID) + '_prop'

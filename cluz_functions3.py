@@ -125,7 +125,7 @@ def checkTargetCsvFile(setupObject):
 
         targetErrorSet = set()
         for aRow in targetReader:
-            progressBar.setValue((rowCount/rowTotalCount)*100)
+            progressBar.setValue(int((rowCount/rowTotalCount)*100))
             rowCount += 1
 
             featIDString = aRow[headerList.index('id')]
@@ -350,7 +350,7 @@ def checkAbundTableDatFile(setupObject, abundTableType):
         next(abundFileReader)
 
         for aRow in abundFileReader:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
             featID, unitID, featAmount = aRow[0:3]
             abundErrorSet, abundErrorRowSet = checkAbundTableFileWrongNumColumns(abundErrorSet, abundErrorRowSet, aRow, rowNum)
@@ -529,7 +529,7 @@ def checkPuShapeFile(setupObject):
     polyTotalCount = puLayer.featureCount()
 
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puAttributes = puFeature.attributes()

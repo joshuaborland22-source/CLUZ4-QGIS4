@@ -17,7 +17,7 @@ class Ui_zonesDialog(object):
         self.gridLayout = QtWidgets.QGridLayout(zonesDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.zonesTableWidget = QtWidgets.QTableWidget(zonesDialog)
-        self.zonesTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.zonesTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.zonesTableWidget.setAlternatingRowColors(True)
         self.zonesTableWidget.setObjectName("zonesTableWidget")
         self.zonesTableWidget.setColumnCount(0)

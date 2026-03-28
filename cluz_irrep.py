@@ -60,7 +60,7 @@ def calcPortfolioSizeUsingRRRichness(setupObject, puSet, calcIrrepForAllPUs):
 
     while (len(unmetTargetFeatIDDict) > 0 and runningRichnessScore > 0) or (len(unmetTargetFeatIDDict) > 0 and runningRichnessScore == -1):
         rowCount = rowTotalCount - len(runningPUSet)
-        progressBar.setValue((rowCount/rowTotalCount) * 100)
+        progressBar.setValue(int((rowCount/rowTotalCount) * 100))
 
         scoreDict, highScorePUID = makeRestrictedRangeDict(setupObject, unmetTargetFeatIDSet, runningPUSet)
         runningRichnessScore = scoreDict[highScorePUID]
@@ -136,7 +136,7 @@ def makeIrrepDict(setupObject, initVarDict, puSet, calcIrrepForAllPUs):
     rowCount = 1
 
     for puID in puSet:
-        progressBar.setValue((rowCount/rowTotalCount) * 100)
+        progressBar.setValue(int((rowCount/rowTotalCount) * 100))
         rowCount += 1
 
         puIDIrrepDict = dict()

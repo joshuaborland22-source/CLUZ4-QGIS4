@@ -138,7 +138,7 @@ def remSmallPatchesFromUnitDict(minpatchDataDict, unitDict, patchDict, marxanFil
     rowCount = 1
 
     for patchID in patchDict:
-        progressBar.setValue((rowCount/rowTotalCount) * 100)
+        progressBar.setValue(int((rowCount/rowTotalCount) * 100))
         rowCount += 1
         patchSize = patchDict[patchID][0]
         patchSizeThreshold = calcPatchSizeThreshold(zoneDict, patchDict, patchID)
@@ -188,7 +188,7 @@ def addMPPatches(setupObject, minpatchDataDict, runningUnitDict, marxanFileName)
 
     while len(unmetTargetIDSet) > 0:
         rowCount = rowTotalCount - len(unmetTargetIDSet)
-        progressBar.setValue((rowCount/rowTotalCount) * 100)
+        progressBar.setValue(int((rowCount/rowTotalCount) * 100))
 
         puPatchScoreDict = makePUPatchScoreDict(minpatchDataDict, featAmountConsDict, allPUPatchAbundDict, puSelectionSet)
         puID, puSelectionSet = returnBestPU(puPatchScoreDict)
@@ -452,7 +452,7 @@ def runSimWhittle(setupObject, runningUnitDict, minpatchDataDict, marxanFileName
             candidateEdgePUIDSet = candidateEdgePUIDSet.union(neighbEdgePUSet)
 
         progressValue = (len(costlyPUIDSet) + len(keystonePUIDSet)) / len(runningUnitDict)
-        progressBar.setValue(progressValue * 100)
+        progressBar.setValue(int(progressValue * 100))
 
     clearProgressBar()
 

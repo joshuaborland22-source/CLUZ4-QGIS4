@@ -397,7 +397,7 @@ def createPULayer(createDialog):
     puLayer.startEditing()
     puFeatures = puLayer.getFeatures()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()
