@@ -384,7 +384,7 @@ def createPatchPUIDTextFile(setupObject, minpatchDataDict):
     rowCount = 1
 
     for puID in unitDict:
-        progressBar.setValue((rowCount/rowTotalCount) * 100)
+        progressBar.setValue(int((rowCount/rowTotalCount) * 100))
         rowCount += 1
 
         puStatus, puXvalue, puYvalue = xyLocDictionary[puID]

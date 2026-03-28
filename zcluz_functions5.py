@@ -50,7 +50,7 @@ def createZonesFeatDatFile(setupObject):
         rowCount = 1
 
         for aFeat in featList:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             featList = targetDict[aFeat]
@@ -89,7 +89,7 @@ def createZonesTargetDatFile(setupObject):
         rowCount = 1
 
         for zonesTargetTypeName in setupObject.zonesTargetDict:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             zonesIDPrefix = zonesTargetTypeName.split('_')[0]
@@ -114,7 +114,7 @@ def createZonesPropDatFile(setupObject):
         rowCount = 1
 
         for zonesPropTypeName in setupObject.zonesPropDict:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             zonesIDPrefix = zonesPropTypeName.split('_')[0]
@@ -143,7 +143,7 @@ def createZonesPuDatFile(setupObject):
 
         zonesPuCostFieldList = makeZonesFieldList(setupObject, puLayer, '_Cost')
         for puFeature in puFeatures:
-            progressBar.setValue((polyCount/polyTotalCount) * 100)
+            progressBar.setValue(int((polyCount/polyTotalCount) * 100))
             polyCount += 1
             puDatRowList = makePUDatRowList(setupObject, puFeature, puIDField, zonesPuCostFieldList)
             puDatWriter.writerow(puDatRowList)
@@ -203,7 +203,7 @@ def createPuLockDatFile(setupObject, zonesPUStatusDict):
         puIDList = list(zonesPUStatusDict.keys())
         puIDList.sort()
         for puID in puIDList:
-            progressBar.setValue((lineCount/lineTotalCount) * 100)
+            progressBar.setValue(int((lineCount/lineTotalCount) * 100))
             lineCount += 1
 
             zonesPUStatusList = zonesPUStatusDict[puID]
@@ -229,7 +229,7 @@ def createPuZoneDatFile(setupObject, zonesPUStatusDict):
         puIDList = list(zonesPUStatusDict.keys())
         puIDList.sort()
         for puID in puIDList:
-            progressBar.setValue((lineCount/lineTotalCount) * 100)
+            progressBar.setValue(int((lineCount/lineTotalCount) * 100))
             lineCount += 1
 
             zonesPUStatusList = zonesPUStatusDict[puID]
@@ -283,7 +283,7 @@ def createCostsDatFile(setupObject):
         costsDatWriter.writerow(['costid', 'costname'])
 
         for zoneNum in range(1, len(setupObject.zonesDict) + 1):
-            progressBar.setValue((rowCount/totalRowCount) * 100)
+            progressBar.setValue(int((rowCount/totalRowCount) * 100))
             rowCount += 1
             costsDatWriter.writerow([zoneNum, 'Z' + str(zoneNum) + '_Cost'])
     clearProgressBar()
@@ -301,7 +301,7 @@ def createZonesDatFile(setupObject):
         costsDatWriter.writerow(['zoneid', 'zonename'])
 
         for zoneID in setupObject.zonesDict:
-            progressBar.setValue((rowCount/totalRowCount) * 100)
+            progressBar.setValue(int((rowCount/totalRowCount) * 100))
             costsDatWriter.writerow([zoneID, setupObject.zonesDict[zoneID]])
     clearProgressBar()
 
@@ -318,7 +318,7 @@ def createZonecostDatFile(setupObject):
         zonecostDatWriter.writerow(['zoneid', 'costid', 'multiplier'])
 
         for zoneID in setupObject.zonesDict:
-            progressBar.setValue((rowCount/totalRowCount) * 100)
+            progressBar.setValue(int((rowCount/totalRowCount) * 100))
             for costID in setupObject.zonesDict:
                 if zoneID == costID:
                     zonecostDatWriter.writerow([zoneID, costID, 1])
@@ -570,7 +570,7 @@ def createZonesBLMFile(ZonesMarxanDialog, setupObject):
         puZonesLabelList = list(zonesBLMValueDict.keys())
         puZonesLabelList.sort()
         for aZoneLabel in puZonesLabelList:
-            progressBar.setValue((lineCount/lineTotalCount) * 100)
+            progressBar.setValue(int((lineCount/lineTotalCount) * 100))
             lineCount += 1
             zonesSplitLabel = aZoneLabel.split(' vs ')
             zoneID1 = zonesSplitLabel[0][5:]
@@ -823,7 +823,7 @@ def addBestZonesMarxanOutputToPUShapefile(setupObject, bestZonesOutputFilePath, 
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()
@@ -869,7 +869,7 @@ def addSummedZonesMarxanOutputToPUShapefile(setupObject, summedOutputFilePath):
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()

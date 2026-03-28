@@ -57,7 +57,7 @@ def createDistributionMapShapefile(setupObject, distShapeFilePathName, selectedF
         distrAttributes = distrFeature.attributes()
         distrID = distrAttributes[distrIDFieldIndex]
 
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         for featID in selectedFeatIDList:
@@ -165,7 +165,7 @@ def produceCountField(setupObject, countFieldName, selectedFeatIDSet):
 
     countDict = dict()
     for puID in setupObject.abundPUKeyDict:
-        progressBar.setValue((polyCount/polyTotalCount) * 50)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 50))
         polyCount += 1
         featCount = 0
         puFeatDict = setupObject.abundPUKeyDict[puID]
@@ -179,7 +179,7 @@ def produceCountField(setupObject, countFieldName, selectedFeatIDSet):
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((50 + polyCount/polyTotalCount) * 50)
+        progressBar.setValue(int((50 + polyCount/polyTotalCount) * 50))
         polyCount += 1
 
         puRow = puFeature.id()
@@ -221,7 +221,7 @@ def produceRestrictedRangeField(setupObject, rangeFieldName, selectedFeatIDSet):
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()

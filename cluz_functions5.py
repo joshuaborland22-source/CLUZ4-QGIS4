@@ -50,7 +50,7 @@ def createSpecDatFile(setupObject):
         rowCount = 1
 
         for aFeat in featList:
-            progressBar.setValue((rowCount/rowTotalCount) * 100)
+            progressBar.setValue(int((rowCount/rowTotalCount) * 100))
             rowCount += 1
 
             featList = targetDict[aFeat]
@@ -96,7 +96,7 @@ def createPuDatFile(setupObject):
         puStatusDict = {'Available': 0, 'Earmarked': 2, 'Conserved': 2, 'Excluded': 3}
 
         for puFeature in puFeatures:
-            progressBar.setValue((polyCount/polyTotalCount) * 100)
+            progressBar.setValue(int((polyCount/polyTotalCount) * 100))
             polyCount += 1
             puDatRowList = makePUDatRowList(puFeature, puStatusDict, puIDField, puCostField, puStatusField, decPrec)
             puDatWriter.writerow(puDatRowList)
@@ -145,7 +145,7 @@ def makePUIDGeomDict(puLayer, puIDFieldIndex):
     polyTotalCount = puLayer.featureCount()
 
     for aPolygon in puLayer.getFeatures():
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
         puIDGeomDict[aPolygon.attributes()[puIDFieldIndex]] = aPolygon.geometry()
     clearProgressBar()
@@ -162,7 +162,7 @@ def makeVertexList(puIDGeomDict):
 
     emptyPolgyonPUIDSet = set()
     for puID in puIDGeomDict:
-        progressBar.setValue((progressCount/numPUs) * 100)
+        progressBar.setValue(int((progressCount/numPUs) * 100))
         progressCount += 1
 
         puGeom = puIDGeomDict[puID]
@@ -186,7 +186,7 @@ def makeBoundResultDict(vertexList):
     totRowNum = len(vertexList)
 
     while rowNum < listLength:
-        progressBar.setValue((rowNum/totRowNum) * 100)
+        progressBar.setValue(int((rowNum/totRowNum) * 100))
 
         (vertexA, puIDA) = vertexList[rowNum]
         (vertexB, puIDB) = vertexList[rowNum + 1]
@@ -605,7 +605,7 @@ def addBestMarxanOutputToPUShapefile(setupObject, bestOutputFilePath, bestFieldN
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()
@@ -658,7 +658,7 @@ def addSummedMarxanOutputToPUShapefile(setupObject, summedOutputFilePath, summed
     puFeatures = puLayer.getFeatures()
     puLayer.startEditing()
     for puFeature in puFeatures:
-        progressBar.setValue((polyCount/polyTotalCount) * 100)
+        progressBar.setValue(int((polyCount/polyTotalCount) * 100))
         polyCount += 1
 
         puRow = puFeature.id()
