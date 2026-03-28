@@ -22,7 +22,7 @@ class Ui_identifySelectedDialog(object):
         self.gridLayout = QtWidgets.QGridLayout(identifySelectedDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.identifySelectedTableWidget = QtWidgets.QTableWidget(identifySelectedDialog)
-        self.identifySelectedTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.identifySelectedTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.identifySelectedTableWidget.setObjectName("identifySelectedTableWidget")
         self.identifySelectedTableWidget.setColumnCount(0)
         self.identifySelectedTableWidget.setRowCount(0)

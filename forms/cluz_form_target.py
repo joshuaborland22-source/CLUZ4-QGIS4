@@ -17,7 +17,7 @@ class Ui_targetDialog(object):
         self.gridLayout = QtWidgets.QGridLayout(targetDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.targetTableWidget = QtWidgets.QTableWidget(targetDialog)
-        self.targetTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.targetTableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.targetTableWidget.setAlternatingRowColors(True)
         self.targetTableWidget.setObjectName("targetTableWidget")
         self.targetTableWidget.setColumnCount(0)
